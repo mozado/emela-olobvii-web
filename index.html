@@ -27,10 +27,12 @@
 
     <script>
         // Fetch song data from a JSON file
-        fetch('songs.json')
-            .then(response => response.json())
-            .then(songs => displaySongs(songs))
-            .catch(error => console.error('Error fetching songs:', error));
+         document.addEventListener('DOMContentLoaded', function () {
+            fetch('songs.json')
+                .then(response => response.json())
+                .then(songs => displaySongs(songs))
+                .catch(error => console.error('Error fetching songs:', error));
+        });
 
         function displaySongs(songs) {
             const songList = document.getElementById('songList');
