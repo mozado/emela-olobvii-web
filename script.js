@@ -1,6 +1,6 @@
-window.onload = function () {
+document.addEventListener('DOMContentLoaded', function() {
   getLyrics(); // Populate the table on page load
-};
+});
 
 async function getLyrics() {
   try {
@@ -24,5 +24,3 @@ async function getLyrics() {
     console.log('Error fetching and populating song titles:', error);
   }
 }
-
-// Rest of the code remains the same
