@@ -8,20 +8,26 @@ async function getLyrics() {
   }
 
   try {
-    // Fetch the JSON file
     const response = await fetch('lyrics.json');
     const data = await response.json();
 
-    // Find the specific song in the JSON file
-    const selectedSong = `song${song.toLowerCase().replace(/ /g, '')}`;
-    const foundSong = data[selectedSong];
+    const songTableBody = document.getElementById('songTableBody');
+    songTableBody.innerHTML = ''; // Clear the table body for new results
 
-    if (foundSong && foundSong.artist.toLowerCase() === artist.toLowerCase()) {
-      document.getElementById('lyrics').innerText = foundSong.lyrics;
-    } else {
-      document.getElementById('lyrics').innerText = "Lyrics not found.";
-    }
+    Object.values(data).forEach(songData => {
+      const { artist: songArtist, title: songTitle } = songData;
+      const selectedSong = `song${songTitle.toLowerCase().replace(/ /g, '')}`;
+
+      if (selectedSong && songArtist.toLowerCase() === artist.toLowerCase()) {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${songArtist}</td>
+          <td>${songTitle}</td>
+        `;
+        songTableBody.appendChild(row);
+      }
+    });
   } catch (error) {
-    console.log('Error fetching lyrics:', error);
+    console.log('Error fetching and populating song titles:', error);
   }
 }
