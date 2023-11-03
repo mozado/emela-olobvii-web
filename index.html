@@ -26,11 +26,10 @@
     </ul>
 
     <script>
-        // Fetch song data from a JSON file
-         document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function () {
             fetch('songs.json')
                 .then(response => response.json())
-                .then(songs => displaySongs(songs))
+                .then(data => displaySongs(data.songs))
                 .catch(error => console.error('Error fetching songs:', error));
         });
 
