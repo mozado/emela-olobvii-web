@@ -1,11 +1,13 @@
-[
-    {
-        "title": "Amazing Grace",
-        "lyrics": "Amazing grace! How sweet the sound..."
-    },
-    {
-        "title": "Blessed Assurance",
-        "lyrics": "Blessed assurance, Jesus is mine..."
-    }
-    // Add more song objects as needed
-]
+{
+    "songs": [
+        {
+            "title": "Amazing Grace",
+            "lyrics": "Amazing grace! How sweet the sound..."
+        },
+        {
+            "title": "Blessed Assurance",
+            "lyrics": "Blessed assurance, Jesus is mine..."
+        }
+        // Add more song objects as needed
+    ]
+}
