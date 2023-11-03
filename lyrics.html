@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hymn Lyrics</title>
+</head>
+<body>
+    <h1>Hymn Lyrics</h1>
+
+    <div id="lyrics">
+        <!-- Lyrics will be displayed here -->
+    </div>
+
+    <script>
+        // Get the song title and lyrics from the URL query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const title = urlParams.get('title');
+        const lyrics = urlParams.get('lyrics');
+
+        // Display the song title and lyrics
+        const lyricsContainer = document.getElementById('lyrics');
+        if (title && lyrics) {
+            const titleElement = document.createElement('h2');
+            titleElement.textContent = title;
+            lyricsContainer.appendChild(titleElement);
+
+            const lyricsParagraph = document.createElement('p');
+            lyricsParagraph.textContent = lyrics;
+            lyricsContainer.appendChild(lyricsParagraph);
+        } else {
+            // If no valid parameters are found, display a message
+            lyricsContainer.textContent = 'Lyrics not found.';
+        }
+    </script>
+</body>
+</html>
